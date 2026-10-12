@@ -1,0 +1,38 @@
+[
+  {
+    "eval_id": "search_chanel_under_9000",
+    "tool": "search_luxury_purse_inventory",
+    "input": {"brand": "Chanel", "max_price_usd": 9000.0},
+    "expected_status": "success"
+  },
+  {
+    "eval_id": "invalid_budget_returns_recovery_instructions",
+    "tool": "search_luxury_purse_inventory",
+    "input": {"brand": "Hermes", "max_price_usd": -50.0},
+    "expected_status": "error",
+    "requires_recovery": true
+  },
+  {
+    "eval_id": "appraise_pristine_birkin_with_card",
+    "tool": "estimate_purse_resale_value",
+    "input": {
+      "brand": "Hermes",
+      "model_name": "Birkin 25",
+      "condition": "pristine",
+      "has_authenticity_card": true
+    },
+    "expected_status": "success"
+  },
+  {
+    "eval_id": "pause_high_value_purchase_without_human_approval",
+    "tool": "complete_luxury_purse_transaction",
+    "input": {
+      "action": "buy",
+      "bag_reference": "CHANEL-FLAP-MED-BLK",
+      "amount_usd": 7900.0,
+      "human_approved": false
+    },
+    "expected_status": "awaiting_human_confirmation",
+    "requires_recovery": true
+  }
+]
